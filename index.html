@@ -85,7 +85,7 @@
         if(n===1){
             p.innerHTML="1 non e' considerato un numero primo"
         } 
-        if(n%2===0 || n%3===0){
+        if(n%2===0 && n!=2 || n%3===0 && n!=3){
             p.innerHTML=`${n} non e' un numero primo`
         }
         else if (n in array_n_primi){
