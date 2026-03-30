@@ -79,12 +79,8 @@
             p.innerHTML="1 non e' considerato un numero primo"
         }
         for (v of array_n_primi){
-            if (v==n){
+            if (v==n || n%v!=0){
                 p.innerHTML = `${n} e' un numero primo(Attenzione: il programma potrebbe non essere accurato)`
-                break
-            }
-            else if(n%v!=0){
-                p.innerHTML=`${n} è un numero primo`
                 break
             }
             else{
