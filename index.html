@@ -1,0 +1,107 @@
+<!DOCTYPE HTML>
+<html>
+<style>
+  p{
+      border: solid orange;
+      padding: 15px;
+      height: 25px;
+      width: auto;
+      margin: 5px;
+  }  
+  button{
+      width: 120px;
+      height:80px;
+      text-size-adjust: 15px;
+      margin:5px;
+      color: white;
+      background-color: grey;
+  }
+  .d{
+      margin-left: 300px;
+  }
+  body{
+      background-color: #f8987342;
+  }
+</style>
+<p></p>
+<button class="d" onclick="number('7')">7</button>
+<button onclick="number('8')">8</button>
+<button onclick="number('9')">9</button><br>
+<button class="d" onclick="number('4')">4</button>
+<button onclick="number('5')">5</button>
+<button onclick="number('6')">6</button><br>
+<button class="d" onclick="number('1')">1</button>
+<button onclick="number('2')">2</button>
+<button onclick="number('3')">3</button><br>
+<button class="d" onclick="number('0')">0</button>
+<button onclick="factorial()">Fattoriale</button>
+<button onclick="pi()">Pi Greco</button><br>
+<button class="d" onclick="pari_dispari()">E' pari o dispari?</button>
+<button onclick="primo()">E' primo?</button>
+<button onclick="erase()">Ricomincia</button>
+<script>
+    const p = document.querySelector("p")
+    let string=""   
+    function pi(){
+        if(string!=""){    
+            n=parseInt(string)
+            n*=pi_greco
+            string=""
+            string+=n
+            p.innerHTML=string 
+        }
+        else{
+            string+=Math.PI
+            p.innerHTML=string
+        }
+    }
+    function number(number_to_insert){
+        string+=number_to_insert
+        p.innerHTML = string
+    }
+    function pari_dispari(){
+        n=parseInt(string) 
+        if(n%2==0){
+            p.innerHTML = `${n} e' un numero pari`
+        }
+        else{
+            p.innerHTML = `${n} e' un numero dispari`
+        }
+    }
+    function erase(){
+        string = ""
+        p.innerHTML = string
+    }
+    function primo(){
+        array_n_primi = [2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97,113,119]
+        n=parseInt(string)
+        if(n===1){
+            p.innerHTML="1 non e' considerato un numero primo"
+        }
+        for (v of array_n_primi){
+            if (v==n){
+                p.innerHTML = `${n} e' un numero primo(Attenzione: il programma potrebbe non essere accurato)`
+                break
+            }
+            else if(n%v!=0){
+                p.innerHTML=`${n} è un numero primo`
+                break
+            }
+            else{
+            p.innerHTML = `${n} non e' un numero primo(Attenzione: il programma potrebbe non essere accurato)`
+        }
+        }
+    }
+    function factorial(){
+        n=parseInt(string)
+        i=0
+        result=1
+        while(i<n){
+            i++
+            result*=i 
+        }
+        p.innerHTML = `Il fattoriale di ${n} e' ${result}`
+        string=""
+    }
+</script>
+</html>
